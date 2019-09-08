@@ -18,5 +18,6 @@ abstract class Response{
     public function respond() : void{
         http_response_code($this->status);
         echo $this->data;
+        exit;
     }
 }

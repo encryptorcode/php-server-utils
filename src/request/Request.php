@@ -14,6 +14,9 @@ class Request{
         $this->params = $_GET;
         $this->headers = array_change_key_case(getallheaders(),CASE_UPPER);
         $this->cookies = $_COOKIE;
+        if(isset($this->headers['X-HTTP-METHOD-OVERRIDE'])){
+            $this->method = $this->headers['X-HTTP-METHOD-OVERRIDE'];
+        }
     }
 
     private static $request;
